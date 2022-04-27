@@ -1,2 +1,2 @@
-# sandbox
+# sand
 Created with CodeSandbox
