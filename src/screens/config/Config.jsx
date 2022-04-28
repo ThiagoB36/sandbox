@@ -1,8 +1,8 @@
 // import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native-web";
-import { getInfo, setInfo } from "../../../../store/Connect";
+// import { TouchableOpacity } from "react-native-web";
+// import { getInfo, setInfo } from "../../../../store/Connect";
 
 export const Config = () => {
   const [sttRazao, setRazao] = useState("");
@@ -14,35 +14,30 @@ export const Config = () => {
   const [sttCity, setCity] = useState("");
   const [sttState, setState] = useState("");
 
-  const data = { user: "Thiago", sobreNome: "Brandão" };
-  const data2 = "Dai";
-  const path = "info";
-  const path2 = "teste";
+  // const obj = {};
+  // const btn1 = () => {
+  //   // setInfo(data, path);
+  //   console.log({ sttRazao });
+  //   console.log({ sttCnpj });
+  //   console.log({ sttIE });
+  //   console.log({ sttStreet });
+  //   console.log({ sttNumber });
+  //   console.log({ sttDistrict });
+  //   console.log({ sttCity });
+  //   console.log({ sttState });
+  // };
+  // const btn2 = () => {
+  //   const data = getInfo[path];
+  //   const data2 = data.data;
+  //   const data3 = data2.sobreNome;
+  //   obj.teste = data3;
+  //   console.log(data3);
+  // };
 
-  const obj = {};
-  const btn1 = () => {
-    setInfo(data, path);
-    console.log({ sttRazao });
-    console.log({ sttCnpj });
-    console.log({ sttIE });
-    console.log({ sttStreet });
-    console.log({ sttNumber });
-    console.log({ sttDistrict });
-    console.log({ sttCity });
-    console.log({ sttState });
-  };
-  const btn2 = () => {
-    const data = getInfo[path];
-    const data2 = data.data;
-    const data3 = data2.sobreNome;
-    obj.teste = data3;
-    console.log(data3);
-  };
-
-  const btn3 = () => {
-    setInfo(data2, path2);
-    console.log(obj.teste);
-  };
+  // const btn3 = () => {
+  // setInfo(data2, path2);
+  //   console.log(obj.teste);
+  // };
 
   return (
     <View style={{ width: "100%", height: "100%" }}>
@@ -127,7 +122,7 @@ export const Config = () => {
           />
         </View>
       </View>
-      <TouchableOpacity onPress={btn1}>
+      {/* <TouchableOpacity onPress={btn1}>
         <Text>BTN</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={btn2}>
@@ -136,7 +131,7 @@ export const Config = () => {
       <TouchableOpacity onPress={btn3}>
         <Text>BTN3</Text>
       </TouchableOpacity>
-      <Text>{obj.teste}</Text>
+      <Text>{obj.teste}</Text> */}
     </View>
   );
 };
