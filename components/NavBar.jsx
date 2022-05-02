@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     elevation: 14,
     shadowOpacity: 0.2,
     overflow: "hidden",
-    zIndex: 0
+    zIndex: 99
   },
   texto: {
     fontSize: 18,

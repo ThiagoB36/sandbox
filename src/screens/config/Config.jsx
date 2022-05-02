@@ -1,18 +1,36 @@
-// import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from "react-native";
 import React, { useState } from "react";
-// import { TouchableOpacity } from "react-native-web";
-// import { getInfo, setInfo } from "../../../../store/Connect";
+import { useDispatch, useSelector } from "react-redux";
+import { changeUser, logout } from "../store/userSlice";
+
+var altura = window.screen.height;
+var largura = window.screen.width;
+var alturaUtil = altura * 0.8;
+var larguraUtil = largura * 0.8;
+var larguraInput = largura * 0.7;
+console.log({ altura });
+console.log({ alturaUtil });
+console.log({ larguraUtil });
+console.log({ larguraInput });
+console.log({ largura });
 
 export const Config = () => {
   const [sttRazao, setRazao] = useState("");
-  const [sttCnpj, setCnpj] = useState("");
-  const [sttIE, setIE] = useState("");
-  const [sttStreet, setStreet] = useState("");
-  const [sttNumber, setNumber] = useState("");
-  const [sttDistrict, setDistrict] = useState("");
-  const [sttCity, setCity] = useState("");
-  const [sttState, setState] = useState("");
+  // const [sttCnpj, setCnpj] = useState("");
+  // const [sttIE, setIE] = useState("");
+  // const [sttStreet, setStreet] = useState("");
+  // const [sttNumber, setNumber] = useState("");
+  // const [sttDistrict, setDistrict] = useState("");
+  // const [sttCity, setCity] = useState("");
+  // const [sttState, setState] = useState("");
+
+  const dispatch = useDispatch();
 
   // const obj = {};
   // const btn1 = () => {
@@ -26,139 +44,71 @@ export const Config = () => {
   //   console.log({ sttCity });
   //   console.log({ sttState });
   // };
-  // const btn2 = () => {
-  //   const data = getInfo[path];
-  //   const data2 = data.data;
-  //   const data3 = data2.sobreNome;
-  //   obj.teste = data3;
-  //   console.log(data3);
-  // };
-
-  // const btn3 = () => {
-  // setInfo(data2, path2);
-  //   console.log(obj.teste);
-  // };
+  const btn1 = () => {
+    dispatch(logout("teste logout"));
+  };
+  const btn2 = () => {
+    dispatch(changeUser(sttRazao));
+  };
+  const state = useSelector((state) => state.user);
+  console.log({ state });
+  console.log({ sttRazao });
 
   return (
-    <View style={{ width: "100%", height: "100%" }}>
-      <Text style={styles.button}>+ADD USER</Text>
-      <View style={{ flexDirection: "column" }}>
-        <View style={styles.container}>
-          <Text style={styles.text}>Razão Social</Text>
-          <TextInput
-            label="razaoSocial"
-            style={styles.input}
-            placeholder="Razão Social"
-            onChangeText={(text) => setRazao(text)}
-            value={sttRazao}
-          />
-        </View>
-
-        <View style={styles.container}>
-          <Text style={styles.text}>CNPJ</Text>
-          <TextInput
-            label="cnpj"
-            style={styles.input}
-            placeholder="CNPJ"
-            onChangeText={(text) => setCnpj(text)}
-            value={sttCnpj}
-          />
-        </View>
-
-        <View style={styles.container}>
-          <Text style={styles.text}>Inscrição Estadual</Text>
-          <TextInput
-            label="ie"
-            style={styles.input}
-            placeholder="Inscrição Estadual"
-            onChangeText={(text) => setIE(text)}
-            value={sttIE}
-          />
-        </View>
-
-        <View style={styles.container}>
-          <Text style={styles.text}>Rua</Text>
-          <TextInput
-            label="street"
-            style={styles.input}
-            placeholder="Rua"
-            onChangeText={(text) => setStreet(text)}
-            value={sttStreet}
-          />
-          <Text style={styles.text}>Numero</Text>
-          <TextInput
-            label="number"
-            style={styles.input}
-            placeholder="Numero"
-            onChangeText={(text) => setNumber(text)}
-            value={sttNumber}
-          />
-        </View>
-
-        <View style={styles.container}>
-          <Text style={styles.text}>Bairro</Text>
-          <TextInput
-            label="bairro"
-            style={styles.input}
-            placeholder="Bairro"
-            onChangeText={(text) => setDistrict(text)}
-            value={sttDistrict}
-          />
-          <Text style={styles.text}>Cidade</Text>
-          <TextInput
-            label="city"
-            style={styles.input}
-            placeholder="Cidade"
-            onChangeText={(text) => setCity(text)}
-            value={sttCity}
-          />
-          <Text style={styles.text}>Estado</Text>
-          <TextInput
-            label="state"
-            style={styles.input}
-            placeholder="Estado"
-            onChangeText={(text) => setState(text)}
-            value={sttState}
-          />
-        </View>
+    <View style={styles.container}>
+      <View style={styles.box}>
+        <Text style={styles.text}>Razão Social</Text>
+        <TextInput
+          label="razaoSocial"
+          style={styles.input}
+          placeholder="Razão Social"
+          onChangeText={(text) => setRazao(text)}
+          value={sttRazao}
+        />
       </View>
-      {/* <TouchableOpacity onPress={btn1}>
-        <Text>BTN</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={btn2}>
-        <Text>BTN2</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={btn3}>
-        <Text>BTN3</Text>
-      </TouchableOpacity>
-      <Text>{obj.teste}</Text> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    textAlign: "center",
+    alignSelf: "center",
+    // justifyContent: "center",
+    width: "80%",
+    height: alturaUtil,
+    flexDirection: "column",
+    backgroundColor: "#D3D3D3",
+    marginTop: -65,
+    zIndex: 0
+  },
+  box: {
+    flexDirection: "column",
+    marginTop: 80,
+    margin: 10,
+    width: "80%"
+  },
   text: {
-    // width: 700,
     fontSize: 15,
-    // textAlign: "center",
     fontWeight: "bold",
-    margin: 10
+    marginLeft: 20,
+    textAlign: "left"
   },
   input: {
-    width: 700,
-    borderWidth: 1,
-    borderColor: "#000",
-    margin: 10
-  },
-  container: {
-    // flex: 1,
-    flexDirection: "row",
-    height: 40,
     width: "100%",
-    justifyContent: "left"
-
-    // alignItems: "center",
+    height: 30,
+    borderWidth: 1,
+    borderBottomWidth: 3,
+    borderBottomColor: "#000",
+    borderColor: "#fff",
+    borderRadius: 30,
+    backgroundColor: "#fff",
+    margin: 5,
+    marginLeft: 10,
+    alignSelf: "center"
   },
+
   button: {
     // flex:1,
     // height:800,

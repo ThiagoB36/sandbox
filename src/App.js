@@ -4,7 +4,7 @@ import { Prods } from "../src/screens/prods/Prods";
 import { Sales } from "../src/screens/sales/Sales";
 import { Config } from "../src/screens/config/Config";
 import { Clients } from "../src/screens/clients/Clients";
-import "./styles.css";
+// import "./styles.css";
 import { NavBar } from "../components/NavBar";
 // import styles from './App.module.css'
 // import Container from "../components/Container";
